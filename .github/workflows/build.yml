@@ -1,0 +1,16 @@
+```yaml name: Build Windows VST3
+on: push: branches: [ "main", "master" ] workflow_dispatch: jobs: build-windows: runs-on: windows-latest
+steps:
+  - name: Checkout Code
+    uses: actions/checkout@v4
+
+  -CMake2" -A x64
+
+  - name: Build VST3 (Release)
+    run: cmake --build build --config Release --target Nevogolos_VST3
+
+  - name: Upload VST3 Artifact
+    uses: actions/upload-artifact@v4
+    with:
+      name: Nevogolos-Windows-VST3
+      ```
